@@ -1,0 +1,26 @@
+
+cd ~
+wget wget https://github.com/eventuate-tram/eventuate-tram-sagas-examples-customers-and-orders/archive/refs/heads/master.zip
+unzip master.zip
+
+wget https://cdn.azul.com/zulu/bin/zulu8.56.0.21-ca-jdk8.0.302-linux_x64.zip
+unzip zulu8.56.0.21-ca-jdk8.0.302-linux_x64.zip
+ln -s zulu8.56.0.21-ca-jdk8.0.302-linux_x64 zulu8
+
+export JAVA_HOME=/home/ec2-user/zulu8
+
+cd /home/ec2-user/eventuate-tram-sagas-examples-customers-and-orders-master
+./gradlew assemble
+
+cd ~
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+docker-compose --version
+
+cd /home/ec2-user/eventuate-tram-sagas-examples-customers-and-orders-master
+#./gradlew mysqlComposeBuild
+#./gradlew mysqlComposeUp
+
+./gradlew postgresComposeBuild
+./gradlew postgresComposeUp
