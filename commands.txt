@@ -1,6 +1,6 @@
 
 cd 
-wget wget https://github.com/eventuate-tram/eventuate-tram-sagas-examples-customers-and-orders/archive/refs/heads/master.zip
+wget https://github.com/eventuate-tram/eventuate-tram-sagas-examples-customers-and-orders/archive/refs/heads/master.zip
 unzip master.zip
 
 wget https://cdn.azul.com/zulu/bin/zulu8.56.0.21-ca-jdk8.0.302-linux_x64.zip
